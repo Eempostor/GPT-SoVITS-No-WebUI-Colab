@@ -20,9 +20,11 @@ dict_language = {
     "japanese+english": "ja",#按日英混合识别####不变
     "automatic": "auto",#多语种启动切分识别语种
 }
-pretrained_gpt_path = "/content/GPT-SoVITS-No-WebUI-Inference/gptsovits_models/pretrained/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt"
-pretrained_sovits_path = "/content/GPT-SoVITS-No-WebUI-Inference/gptsovits_models/pretrained/s2G488k.pth"
-models_dir_path = "/content/GPT-SoVITS-No-WebUI-Inference/gptsovits_models"
+
+models_dir_path = "gptsovits_models"
+pretrained_gpt_path = "gptsovits_models/pretrained/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt"
+pretrained_sovits_path = "gptsovits_models/pretrained/s2G488k.pth"
+
 cnhubert_base_path = os.environ.get(
     "cnhubert_base_path", "GPT_SoVITS/pretrained_models/chinese-hubert-base"
 )
