@@ -63,7 +63,7 @@ else:
 def get_bert_feature(text, word2ph):
     global bert_model
     
-    if not bert_model in globals():
+    if not "bert_model" in globals():
         tokenizer = AutoTokenizer.from_pretrained(bert_path)
         bert_model = AutoModelForMaskedLM.from_pretrained(bert_path)
         if is_half == True:
