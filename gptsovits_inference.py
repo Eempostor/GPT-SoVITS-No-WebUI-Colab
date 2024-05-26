@@ -61,9 +61,9 @@ else:
     device = "cpu"
 
 def get_bert_feature(text, word2ph):
-    global bert_model
+    global tokenizer, bert_model
     
-    if not "bert_model" in globals():
+    if not "tokenizer" in globals() or not "bert_model" in globals():
         tokenizer = AutoTokenizer.from_pretrained(bert_path)
         bert_model = AutoModelForMaskedLM.from_pretrained(bert_path)
         if is_half == True:
@@ -492,7 +492,7 @@ def get_gpt_model(model_name, use_pretrained):
             for f in f_list:
                 if f.endswith(".ckpt"):
                     return os.path.join(r, f)
-    print("Using pretrained GPT model.")
+    print(f"Using pretrained GPT model ({pretrained_gpt_path}).")
     return pretrained_gpt_path
 
 def get_sovits_model(model_name, use_pretrained):
@@ -502,7 +502,7 @@ def get_sovits_model(model_name, use_pretrained):
             for f in f_list:
                 if f.endswith(".pth"):
                     return os.path.join(r, f)
-    print("Using pretrained SoVITS model.")
+    print(f"Using pretrained SoVITS model ({pretrained_sovits_path}).")
     return pretrained_sovits_path
 
 loaded_gpt_path = None
